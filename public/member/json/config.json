@@ -1,0 +1,58 @@
+{
+    "type": "div",
+    "title": "表单页面",
+    "body": [{
+        "type": "div",
+        "mode": "horizontal",
+        "body": [{
+                "label": "Name",
+                "type": "input-text",
+                "name": "code"
+            },
+            {
+                "label": "Email",
+                "type": "input-email",
+                "placeholder": "请输入邮箱地址",
+                "name": "time"
+            },
+            {
+                "label": "div",
+                "type": "div",
+                "body": [{
+                        "label": "bar",
+                        "type": "echarts-bar",
+                        "axiosdata": {
+                            "refresh": "data.a_buttonlog",
+                            "url": "/member/json/resdata.json",
+                            "method": "get",
+                            "req": {
+                                "code": "data.a_code",
+                                "time": "data.a_time"
+                            }
+                        }
+                    },
+                    {
+                        "label": "pie",
+                        "type": "echarts-pie",
+                        "axiosdata": {
+                            "url": "/member/json/resdata.json",
+                            "method": "get",
+                            "req": {
+                                "code": "data.a_code",
+                                "time": "data.a_time"
+                            }
+                        }
+                    },
+                    {
+                        "label": "button",
+                        "type": "button",
+                        "text": "按钮",
+                        "clickAction": {
+                            "axiosdata": "data.a_buttonlog"
+                        }
+                    }
+                ]
+            }
+        ]
+    }]
+}

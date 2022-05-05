@@ -1,0 +1,570 @@
+{
+    "type": "page",
+    "title": "测试页面",
+    "body": [{
+            "type": "grid",
+            "body": [{
+                    "type": "wselect",
+                    "placeholder": "请选择",
+                    "name": "code",
+                    "id": "select1",
+                    "data": [{
+                            "value": "测试1",
+                            "label": "测试1"
+                        },
+                        {
+                            "value": "测试2",
+                            "label": "测试2",
+                            "disabled": true
+                        },
+                        {
+                            "value": "测试3",
+                            "label": "测试3"
+                        }
+                    ]
+                },
+                {
+                    "label": "刷新数据",
+                    "type": "wbutton",
+                    "id": "b_001",
+                    "onEvent": {
+                        "click": {
+                            "actions": [{
+                                "actionType": "reload",
+                                "componentId": "echarts1"
+                            }]
+                        }
+                    }
+                },
+                {
+                    "label": "显示",
+                    "type": "wbutton",
+                    "id": "b_002",
+                    "onEvent": {
+                        "click": {
+                            "actions": [{
+                                "actionType": "show",
+                                "componentId": "select1"
+                            }]
+                        }
+                    }
+                },
+                {
+                    "label": "隐藏",
+                    "type": "wbutton",
+                    "id": "b_003",
+                    "onEvent": {
+                        "click": {
+                            "actions": [{
+                                "actionType": "hidden",
+                                "componentId": "select1"
+                            }]
+                        }
+                    }
+                },
+                {
+                    "type": "span",
+                    "label": "data.a_code"
+                },
+                {
+                    "type": "span",
+                    "label": "data.a_code"
+                },
+                {
+                    "label": "bar",
+                    "type": "echarts-bar",
+                    "id": "echarts1",
+                    "options": {
+                        "width": "100%",
+                        "height": "350px"
+                    },
+                    "echartsOptions": {
+                        "grid": {
+                            "left": "0%",
+                            "right": "0%",
+                            "bottom": "0%",
+                            "containLabel": true
+                        }
+                    },
+                    "onEvent": {
+                        "click": {
+                            "actions": [{
+                                "actionType": "echarts-reload",
+                                "componentId": "echarts2",
+                                "select": "y",
+                                "key": "mgtorgcod"
+                            }]
+                        }
+                    },
+                    "axiosdata": {
+                        "url": "/member/json/resdata1111",
+                        "method": "post",
+                        "req": {
+                            "code": "data.a_code"
+                        }
+                    }
+                },
+                {
+                    "label": "bar",
+                    "type": "echarts-bar",
+                    "id": "echarts2",
+                    "options": {
+                        "width": "100%",
+                        "height": "350px"
+                    },
+                    "echartsOptions": {
+                        "grid": {
+                            "left": "0%",
+                            "right": "0%",
+                            "bottom": "0%",
+                            "containLabel": true
+                        }
+                    },
+                    "onEvent": {
+                        "click": {
+                            "actions": [{
+                                "actionType": "echarts-reload",
+                                "componentId": "",
+                                "select": "y",
+                                "key": "mgtorgcod"
+                            }]
+                        }
+                    },
+                    "axiosdata": {
+                        "url": "/member/json/resdata1111",
+                        "method": "post",
+                        "req": {
+                            "code": "data.a_code"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "type": "grid",
+            "body": [{
+                    "type": "wradiogroup",
+                    "name": "select1",
+                    "id": "radiogrpup",
+                    "data": [{
+                            "value": "基础信息",
+                            "label": "1"
+                        },
+                        {
+                            "value": "设备信息",
+                            "label": "2"
+                        },
+                        {
+                            "value": "光伏发电",
+                            "label": "3"
+                        },
+                        {
+                            "value": "用户信息",
+                            "label": "4"
+                        }
+                    ]
+                },
+                {
+                    "type": "span",
+                    "label": "data.a_code"
+                },
+                {
+                    "type": "div",
+                    "body": [{
+                            "type": "page",
+                            "name": "page2",
+                            "show": "data.a_select1==1",
+                            "body": [{
+                                    "type": "grid",
+                                    "body": [{
+                                            "type": "wicon",
+                                            "class": "el-icon-eleme"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "label": "用户户数"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "unit": "个",
+                                            "axiosdata": {
+                                                "url": "/member/json/resdata1111",
+                                                "method": "post",
+                                                "req": {
+                                                    "code": "data.a_code"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "grid",
+                                    "body": [{
+                                            "type": "wicon",
+                                            "class": "el-icon-delete-solid"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "label": "网格数量"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "unit": "个",
+                                            "axiosdata": {
+                                                "url": "/member/json/resdata22",
+                                                "method": "post",
+                                                "req": {
+                                                    "code": "data.a_code"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "grid",
+                                    "body": [{
+                                            "type": "wicon",
+                                            "class": "el-icon-s-tools"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "label": "用户容量"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "unit": "kVA",
+                                            "axiosdata": {
+                                                "url": "/member/json/resdata33333",
+                                                "method": "post",
+                                                "req": {
+                                                    "code": "data.a_code"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "grid",
+                                    "body": [{
+                                            "type": "wicon",
+                                            "class": "el-icon-user-solid"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "label": "台区"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "unit": "台",
+                                            "axiosdata": {
+                                                "url": "/member/json/resdata33333",
+                                                "method": "post",
+                                                "req": {
+                                                    "code": "data.a_code"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "page",
+                            "name": "page2",
+                            "show": "data.a_select1==2",
+                            "body": [{
+                                    "type": "grid",
+                                    "body": [{
+                                            "type": "wicon",
+                                            "class": "el-icon-eleme"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "label": "电能表"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "unit": "只",
+                                            "axiosdata": {
+                                                "url": "/member/json/resdata6666",
+                                                "method": "post",
+                                                "req": {
+                                                    "code": "data.a_code"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "grid",
+                                    "body": [{
+                                            "type": "wicon",
+                                            "class": "el-icon-delete-solid"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "label": "计量箱"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "unit": "个",
+                                            "axiosdata": {
+                                                "url": "/member/json/resdata22",
+                                                "method": "post",
+                                                "req": {
+                                                    "code": "data.a_code"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "grid",
+                                    "body": [{
+                                            "type": "wicon",
+                                            "class": "el-icon-user-solid"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "label": "集中器"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "unit": "只",
+                                            "axiosdata": {
+                                                "url": "/member/json/resdata33333",
+                                                "method": "post",
+                                                "req": {
+                                                    "code": "data.a_code"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "page",
+                            "name": "page3",
+                            "show": "data.a_select1==3",
+                            "body": [{
+                                    "type": "grid",
+                                    "body": [{
+                                            "type": "wicon",
+                                            "class": "el-icon-eleme"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "label": "光伏发电户"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "unit": "户",
+                                            "axiosdata": {
+                                                "url": "/member/json/resdata6666",
+                                                "method": "post",
+                                                "req": {
+                                                    "code": "data.a_code"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "grid",
+                                    "body": [{
+                                            "type": "wicon",
+                                            "class": "el-icon-delete-solid"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "label": "装机容量"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "unit": "kVA",
+                                            "axiosdata": {
+                                                "url": "/member/json/resdata22",
+                                                "method": "post",
+                                                "req": {
+                                                    "code": "data.a_code"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "grid",
+                                    "body": [{
+                                            "type": "wicon",
+                                            "class": "el-icon-user-solid"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "label": "发电量"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "unit": "kW·h",
+                                            "axiosdata": {
+                                                "url": "/member/json/resdata33333",
+                                                "method": "post",
+                                                "req": {
+                                                    "code": "data.a_code"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "grid",
+                                    "body": [{
+                                            "type": "wicon",
+                                            "class": "el-icon-user-solid"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "label": "上网电量"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "unit": "kW·h",
+                                            "axiosdata": {
+                                                "url": "/member/json/resdata33333",
+                                                "method": "post",
+                                                "req": {
+                                                    "code": "data.a_code"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "page",
+                            "name": "page3",
+                            "show": "data.a_select1==4",
+                            "body": [{
+                                    "type": "grid",
+                                    "body": [{
+                                            "type": "wicon",
+                                            "class": "el-icon-eleme"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "label": "居民用户数"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "unit": "户",
+                                            "axiosdata": {
+                                                "url": "/member/json/resdata6666",
+                                                "method": "post",
+                                                "req": {
+                                                    "code": "data.a_code"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "grid",
+                                    "body": [{
+                                            "type": "wicon",
+                                            "class": "el-icon-delete-solid"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "label": "非居民用户数"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "unit": "户",
+                                            "axiosdata": {
+                                                "url": "/member/json/resdata22",
+                                                "method": "post",
+                                                "req": {
+                                                    "code": "data.a_code"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "grid",
+                                    "body": [{
+                                            "type": "wicon",
+                                            "class": "el-icon-user-solid"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "label": "双电源用户数"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "unit": "户",
+                                            "axiosdata": {
+                                                "url": "/member/json/resdata33333",
+                                                "method": "post",
+                                                "req": {
+                                                    "code": "data.a_code"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "grid",
+                                    "body": [{
+                                            "type": "wicon",
+                                            "class": "el-icon-user-solid"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "label": "定比量户数"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "unit": "户",
+                                            "axiosdata": {
+                                                "url": "/member/json/resdata33333",
+                                                "method": "post",
+                                                "req": {
+                                                    "code": "data.a_code"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "grid",
+                                    "body": [{
+                                            "type": "wicon",
+                                            "class": "el-icon-user-solid"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "label": "电动汽车"
+                                        },
+                                        {
+                                            "type": "wspan",
+                                            "unit": "个",
+                                            "axiosdata": {
+                                                "url": "/member/json/resdata33333",
+                                                "method": "post",
+                                                "req": {
+                                                    "code": "data.a_code"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
