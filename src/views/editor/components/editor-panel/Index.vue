@@ -26,7 +26,8 @@
             :key="'item' + index"
             :uuid="item.uuid"
             :defaultStyle="item.commonStyle"
-            :style="getCommonStyle({
+            :style="
+              getCommonStyle({
                 width: item.commonStyle.width,
                 height: item.commonStyle.height,
                 left: item.commonStyle.left,
@@ -151,9 +152,9 @@ export default {
   },
   computed: {
     ...mapState({
-      projectData: (state) => state.default.projectData,
-      activePageUUID: (state) => state.default.activePageUUID,
-      activeElementUUID: (state) => state.default.activeElementUUID,
+      projectData: (state) => state.editor.projectData,
+      activePageUUID: (state) => state.editor.activePageUUID,
+      activeElementUUID: (state) => state.editor.activeElementUUID,
     }),
     ...mapGetters([
       "currentPageIndex",
@@ -187,16 +188,16 @@ export default {
      * 鼠标移动完成时才记入历史纪录
      */
     handleElementResize(pos) {
-       if (!pos) {
-       // this.$store.dispatch("addHistoryCache");
-      } else {
-          this.projectData.pages[this.currentPageIndex].elements[this.activeElementIndex].commonStyle = { ...pos };
+      if (!pos) {
+        this.$store.dispatch("addHistoryCache");
+        return;
       }
-      //  this.projectData.pages[this.currentPageIndex].elements[this.activeElementIndex].commonStyle.left = pos.left;
       // 更新元素commonStyle
-      /* this.projectData.pages[this.currentPageIndex].elements[
+      this.activePage.elements[
         this.activeElementIndex
-      ].commonStyle = { ...pos }; */
+      ].commonStyle = {
+        ...pos,
+      };
     },
     handleClickCanvas(e) {
       if (

@@ -158,9 +158,9 @@ export default {
   },
   computed: {
     ...mapState({
-      projectData: (state) => state.default.projectData,
-      activePageUUID: (state) => state.default.activePageUUID,
-      activeElementUUID: (state) => state.default.activeElementUUID,
+      projectData: (state) => state.editor.projectData,
+      activePageUUID: (state) => state.editor.activePageUUID,
+      activeElementUUID: (state) => state.editor.activeElementUUID,
     }),
     ...mapGetters(["currentPageIndex", "activeElementIndex", "activeElement"]),
   },
@@ -208,7 +208,7 @@ export default {
      * 执行此条动画效果
      */
     runAnimate(index) {
-      console.warn(1, "步骤1");
+  
       let animationData =
         index === undefined
           ? this.activeElement.animations

@@ -141,9 +141,9 @@ export default {
   },
   computed: {
     ...mapState({
-      projectData: (state) => state.default.projectData,
-      activePageUUID: (state) => state.default.activePageUUID,
-      activeElementUUID: (state) => state.default.activeElementUUID,
+      projectData: (state) => state.editor.projectData,
+      activePageUUID: (state) => state.editor.activePageUUID,
+      activeElementUUID: (state) => state.editor.activeElementUUID,
     }),
   },
   created() {
@@ -242,9 +242,10 @@ export default {
     async showPreviewFn() {
       // await this.screenshots()
       // 提交数据再预览
-      this.$API.updatePage({ pageData: this.projectData }).then(() => {
+     /*  this.$API.updatePage({ pageData: this.projectData }).then(() => {
         this.showPreview = true;
-      });
+      }); */
+       this.showPreview = true;
     },
     /**
      * 退出

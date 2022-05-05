@@ -27,6 +27,7 @@
 
 	export default {
 		props: {
+			modelValue: { default: '' },
 			url: String
 		},
 		data() {
@@ -38,7 +39,8 @@
 		},
 		created() {
 			this.$bus.on('select-image', this.changeIamge)
-			this.tempValue = this.url;
+      let val = this.modelValue.url || this.url
+			this.tempValue = val;
 		},
 		watch: {
 			url(val) {

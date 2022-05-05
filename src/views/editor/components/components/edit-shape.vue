@@ -1,6 +1,4 @@
-/**
-组件编辑外层拖拽，可编辑按钮，缩放改变盒子大小
-*/
+
 <template>
   <div
     class="components-edit-shape"
@@ -20,6 +18,9 @@
 </template>
 
 <script>
+/*
+  组件编辑外层拖拽，可编辑按钮，缩放改变盒子大小
+*/
 import runAnimations from "@/views/editor/common/js/runAnimations";
 export default {
   name: "EditShape",
@@ -56,7 +57,6 @@ export default {
       // 正在执行的动画不允许插入新动画
       if (this.animatePlaying) return;
       let cssText = this.$el.style.cssText;
-      console.warn(this.$el,'$el');
       this.animatePlaying = true;
       runAnimations(this.$el, animations, true, () => {
         this.$el.style.cssText = cssText;
@@ -139,6 +139,7 @@ export default {
         let currY = moveEvent.clientY;
         pos.top = currY - startY + startTop;
         pos.left = currX - startX + startLeft;
+
         this.$emit("resize", pos);
       };
       let up = () => {

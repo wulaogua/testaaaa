@@ -4,7 +4,7 @@
             type="textarea"
             :rows="2"
             placeholder="请输入文本内容"
-            v-model="tempText">
+            v-model="modelValue.text">
     </el-input>
   </el-form-item>
 </template>
@@ -13,6 +13,7 @@
 	export default {
 		name: "attr-qk-text",
 		props: {
+			modelValue: { default: '' },
 			text: String
 		},
 		data() {

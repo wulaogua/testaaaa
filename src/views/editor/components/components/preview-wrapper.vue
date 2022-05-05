@@ -2,12 +2,12 @@
   <div class="components-preview">
     <div class="setting-bg"></div>
     <div class="left-panel">
-      <div class="iframe-wrapper" :style="{width: $config.canvasH5Width + 'px', height: $config.canvasH5Height + 'px'}">
-        <iframe :src="$config.baseURL + '/quark/view/' + pageId" frameborder="0" style="background-color:transparent;width: 100%; height: 100%;"></iframe>
+      <div class="iframe-wrapper" :style="{width: 800 + 'px', height: 600 + 'px'}">
+        <iframe :src="'http://localhost:8082/quark/view/' + pageId" frameborder="0" style="background-color:transparent;width: 100%; height: 100%;"></iframe>
       </div>
     </div>
     <div class="right-panel">
-      <slot></slot>
+    <!--  <slot></slot> -->
     </div>
     <span class="cloase-btn" @click="closePreview">
       <i class="el-icon-close"></i>

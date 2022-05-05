@@ -9,6 +9,7 @@
 	export default {
 		name: "attr-qk-imageSrc",
 		props: {
+			modelValue: { default: '' },
 			imageSrc: String
 		},
 		components: {
@@ -20,14 +21,22 @@
 			}
 		},
 		mounted() {
-			this.tempValue = this.imageSrc;
+			console.log(this.imageSrc, 'aabbccddee')
+			let val = this.modelValue.imageSrc || this.imageSrc
+			this.tempValue = val;
 		},
 		watch: {
 			imageSrc(val) {
 				this.tempValue = val;
 			},
 			tempValue() {
-				this.$emit('update:imageSrc', this.tempValue);
+				if (this.imageSrc !== undefined) {
+					this.imageSrc = this.tempValue
+				}
+				if (this.modelValue.imageSrc != undefined) {
+					this.modelValue.imageSrc = this.tempValue
+				}
+				// this.$emit('update:imageSrc', this.tempValue);
 			}
 		}
 	}

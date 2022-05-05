@@ -13,7 +13,8 @@
 	export default {
 		name: "attr-qk-url",
 		props: {
-			url: String
+			modelValue: { default: '' },
+			url: String,
 		},
 		data() {
 			return {
@@ -28,6 +29,8 @@
 				this.tempValue = val;
 			},
 			tempValue() {
+				this.modelValue.url = this.tempValue
+				this.url = this.tempValue
 				this.$emit('update:url', this.tempValue);
 			}
 		}

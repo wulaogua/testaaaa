@@ -1,8 +1,7 @@
 <template>
   <el-dialog
-    class="components-image-libs-wrapper"
     title="我的图片"
-    v-model:visible="dialogVisible"
+    v-model="dialogVisible"
     width="600px"
   >
     <div class="components-image-libs">
@@ -86,21 +85,21 @@ export default {
       let params = new FormData();
       params.append("file", file);
       this.uploading = true;
-      this.$API
-        .uploadImage(params)
-        .then((res) => {
-          this.uploading = false;
-          this.imageList.splice(0, 0, res.body);
-        })
-        .catch(() => {
-          this.uploading = true;
-        });
+      // this.$API
+      //   .uploadImage(params)
+      //   .then((res) => {
+      //     this.uploading = false;
+      //     this.imageList.splice(0, 0, res.body);
+      //   })
+      //   .catch(() => {
+      //     this.uploading = true;
+      //   });
     },
     getMyImages() {
       this.hasLoadData = true;
-      this.$API.getMyImages().then((res) => {
-        this.imageList = res.body || [];
-      });
+      // this.$API.getMyImages().then((res) => {
+      //   this.imageList = res.body || [];
+      // });
     },
     /**
      * 点击图片

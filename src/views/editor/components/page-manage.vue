@@ -55,9 +55,9 @@
 	export default {
 		computed: {
 			...mapState({
-				projectData: state => state.default.projectData,
-				activePageUUID: state => state.default.activePageUUID,
-				activeElementUUID: state => state.default.activeElementUUID
+				projectData: state => state.editor.projectData,
+				activePageUUID: state => state.editor.activePageUUID,
+				activeElementUUID: state => state.editor.activeElementUUID
 			})
 		},
 		methods: {

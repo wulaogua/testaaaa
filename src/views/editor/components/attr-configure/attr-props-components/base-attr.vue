@@ -334,10 +334,10 @@
 		},
 		computed: {
 			...mapState({
-				projectData: state => state.default.projectData,
-				activePageUUID: state => state.default.activePageUUID,
-				activeElementUUID: state => state.default.activeElementUUID,
-				activeAttrEditCollapse: state => state.default.activeAttrEditCollapse
+				projectData: state => state.editor.projectData,
+				activePageUUID: state => state.editor.activePageUUID,
+				activeElementUUID: state => state.editor.activeElementUUID,
+				activeAttrEditCollapse: state => state.editor.activeAttrEditCollapse
 			}),
 			...mapGetters([
 				'currentPageIndex',
@@ -347,12 +347,12 @@
 			])
 		},
 		watch: {
-			activeElementUUID() {
+		/* 	activeElementUUID() {
 				// 设置boxShadow
 				this.$nextTick(() => {
 					this.initBoxShadowEdit()
 				})
-			},
+			}, */
 			activeNames() {
 				this.$store.commit('updateActiveAttrEditCollapse', this.activeNames)
 			}
@@ -408,6 +408,7 @@
 			 * 初始化阴影编辑对象
 			 */
 			initBoxShadowEdit() {
+
 				let boxShadow = this.activeElement.commonStyle.boxShadow;
 				let boxShadowEditConfig = {
 					h: 0,

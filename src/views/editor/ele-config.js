@@ -7,6 +7,7 @@ export default [{
                 // 每个组件设置props来展示哪些显示哪些编辑项
                 valueType: '', // 标识数据类型，用于表单组件
                 defaultStyle: {
+                    width: 140,
                     height: 40
                 }
             },
@@ -16,6 +17,7 @@ export default [{
                 icon: 'iconfont icontupian',
                 valueType: '', // 标识数据类型，用于表单组件,
                 defaultStyle: {
+                    width: 200,
                     height: 200
                 }
             },
@@ -66,6 +68,7 @@ export default [{
                 icon: 'iconfont iconshouyelunbotu',
                 valueType: '', // 标识数据类型，用于表单组件,
                 defaultStyle: {
+                    width: 200,
                     height: 210
                 }
             },
@@ -89,7 +92,11 @@ export default [{
         components: [{
                 elName: 'input',
                 title: '文本框',
-                icon: 'iconfont iconwenbenkuang'
+                icon: 'iconfont iconwenbenkuang',
+                defaultStyle: {
+                    width: 200,
+                    height: 50,
+                }
             },
             {
                 elName: 'radio',

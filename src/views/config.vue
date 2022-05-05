@@ -23,7 +23,7 @@ export default {
     },
     mounted () {
         axios.get('/member/json/resdata.json').then(res => {
-            console.warn(res);
+      
             this.data =  res.data
             this.isShow=true
         })
